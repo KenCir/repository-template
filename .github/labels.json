@@ -39,19 +39,24 @@
     "description": "重要度：低"
   },
   {
-    "name": "Close: duplicate",
-    "color": "ededed",
-    "description": "このイシュー・プルリクエストはすでに存在します"
+    "name": "Priority: Lowest",
+    "color": "00E5FF",
+    "description": "重要度：最低（余裕があれば取り組む）"
   },
   {
-    "name": "Close: invalid",
+    "name": "Closed: duplicate",
     "color": "ededed",
-    "description": "無効なイシュー・プルリクエスト"
+    "description": "このイシュー・プルリクエストは重複しているため閉じられています"
   },
   {
-    "name": "Close: Abandoned",
+    "name": "Closed: invalid",
     "color": "ededed",
-    "description": "このイシュー・プルリクエストは修正されません",
+    "description": "このイシュー・プルリクエストは無効なため閉じられています"
+  },
+  {
+    "name": "Closed: Abandoned",
+    "color": "ededed",
+    "description": "このイシュー・プルリクエストは取り組まれません",
     "aliases": [
       "wontfix"
     ]
@@ -59,25 +64,25 @@
   {
     "name": "Status: Blocked",
     "color": "ee0701",
-    "description": "イシューの進行はブロックされています",
+    "description": "このイシュー・プルリクエストの進行はブロックされています",
     "aliases": [
       "blocked"
     ]
   },
   {
     "name": "Status: Todo",
-    "description": "計画されている",
+    "description": "このイシュー・プルリクエストは計画されています",
     "color": "0E8A16"
   },
   {
     "name": "Status: In Progress",
-    "description": "進行中の作業",
+    "description": "このイシュー・プルリクエストは進行中です",
     "color": "cccccc"
   },
   {
     "name": "Status: Proposal",
     "color": "d4c5f9",
-    "description": "コメントの要求",
+    "description": "このイシュー・プルリクエストは議論が必要です。",
     "aliases": [
       "idea",
       "Idea",
@@ -89,25 +94,25 @@
   {
     "name": "Status: Review Needed",
     "color": "fbca04",
-    "description": "レビューのリクエスト"
+    "description": "このイシュー・プルリクエストはレビュー待ちです"
   },
   {
     "name": "Status: Need More Info",
     "color": "F9C90A",
-    "description": "進行するには十分な情報が不足しています"
+    "description": "このイシュー・プルリクエストを進行するには十分な情報が不足しています"
   },
   {
-    "name": "Status: Done",
+    "name": "Status: Completed",
     "color": "C5DEF5",
     "description": "このイシューまたはプルリクエストは完了しました",
     "aliases": [
-      "Completed"
+      "done"
     ]
   },
   {
     "name": "Type: Breaking Change",
     "color": "b60205",
-    "description": "破壊的変更が含まれています",
+    "description": "破壊的変更",
     "aliases": [
       "breaking",
       "breaking-change"
@@ -122,9 +127,14 @@
     ]
   },
   {
+    "name": "Type: Change",
+    "color": "FFEE58",
+    "description": "機能の変更"
+  },
+  {
     "name": "Type: Documentation",
     "color": "0e8a16",
-    "description": "ドキュメントが変更されます",
+    "description": "ドキュメントの変更",
     "aliases": [
       "documents",
       "document"
@@ -154,14 +164,6 @@
       "travis",
       "ci",
       "circleci"
-    ]
-  },
-  {
-    "name": "Type: Question",
-    "color": "cc317c",
-    "description": "さらなる情報が求められます",
-    "aliases": [
-      "question"
     ]
   },
   {
