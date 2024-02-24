@@ -13,17 +13,20 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: test
+        run: |
+          echo ${{ github.event.head_commit.message }};
       - name: Get Version
         id: get_version
         run: echo VERSION=${VERSION_TEXT##*Release } >> $GITHUB_OUTPUT
         env:
           VERSION_TEXT: ${{ github.event.head_commit.message }}
-      - name: Create Release Note
-        uses: release-drafter/release-drafter@v6.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag: ${{ steps.get_version.outputs.VERSION }}
-          name: Release ${{ steps.get_version.outputs.VERSION }}
-          version: ${{ steps.get_version.outputs.VERSION }}
-          publish: true
+      #- name: Create Release Note
+      #  uses: release-drafter/release-drafter@v6.0.0
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #  with:
+      #    tag: ${{ steps.get_version.outputs.VERSION }}
+      #    name: Release ${{ steps.get_version.outputs.VERSION }}
+      #    version: ${{ steps.get_version.outputs.VERSION }}
+      #    publish: true
