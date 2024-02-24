@@ -16,6 +16,7 @@ jobs:
       - name: test
         run: |
           echo ${{ github.event.head_commit.message }};
+          echo "${{ startsWith(github.event.head_commit.message, 'Release ') }}";
       - name: Get Version
         id: get_version
         run: echo VERSION=${VERSION_TEXT##*Release } >> $GITHUB_OUTPUT
