@@ -1,0 +1,30 @@
+categories:
+  - title: Features / 新機能
+    labels:
+      - "Type: Feature"
+  - title: Bug Fixes / バグ修正
+    labels:
+      - "Type: Bug"
+  - title: Changes / 変更
+    labels:
+      - "Type: Change"
+  - title: Documentation / ドキュメント
+    labels:
+      - "Type: Documentation"
+  - title: Refactoring / リファクタリング
+    labels:
+      - "Type: Refactoring"
+  - title: "Dependencies / 依存関係"
+    labels:
+      - "Type: Dependencies"
+  - title: Other Changes / その他の変更
+    labels:
+      - "*"
+exclude-contributors:
+  - github-actions
+change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
+change-title-escapes: '\<*_&'
+template: |
+  ## Changes
+
+  $CHANGES
