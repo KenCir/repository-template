@@ -8,14 +8,3 @@ assignees: ''
 ---
 
 # Summary / 概要
-
-# Expected Behavior / 予想される動作
-
-# Actual Behavior / 実際の動作
-
-# Steps to Reproduce / 再現する手順
-
-# Environment / 動作環境
-- OS: 
-- Commit: 
-- Version:
