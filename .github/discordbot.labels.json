@@ -57,17 +57,13 @@
     "name": "Closed: Abandoned",
     "color": "ededed",
     "description": "このイシュー・プルリクエストは取り組まれません",
-    "aliases": [
-      "wontfix"
-    ]
+    "aliases": ["wontfix"]
   },
   {
     "name": "Status: Blocked",
     "color": "ee0701",
     "description": "このイシュー・プルリクエストの進行はブロックされています",
-    "aliases": [
-      "blocked"
-    ]
+    "aliases": ["blocked"]
   },
   {
     "name": "Status: Todo",
@@ -83,13 +79,7 @@
     "name": "Status: Proposal",
     "color": "d4c5f9",
     "description": "このイシュー・プルリクエストは議論が必要です。",
-    "aliases": [
-      "idea",
-      "Idea",
-      "proposal",
-      "Proposal",
-      "discussion"
-    ]
+    "aliases": ["idea", "Idea", "proposal", "Proposal", "discussion"]
   },
   {
     "name": "Status: Review Needed",
@@ -105,26 +95,19 @@
     "name": "Status: Completed",
     "color": "C5DEF5",
     "description": "このイシューまたはプルリクエストは完了しました",
-    "aliases": [
-      "done"
-    ]
+    "aliases": ["done"]
   },
   {
     "name": "Type: Breaking Change",
     "color": "b60205",
     "description": "破壊的変更",
-    "aliases": [
-      "breaking",
-      "breaking-change"
-    ]
+    "aliases": ["breaking", "breaking-change"]
   },
   {
     "name": "Type: Bug",
     "color": "ee0701",
     "description": "バグまたはバグ修正",
-    "aliases": [
-      "bug"
-    ]
+    "aliases": ["bug"]
   },
   {
     "name": "Type: Change",
@@ -135,60 +118,43 @@
     "name": "Type: Documentation",
     "color": "0e8a16",
     "description": "ドキュメントの変更",
-    "aliases": [
-      "documents",
-      "document"
-    ]
+    "aliases": ["documents", "document"]
   },
   {
     "name": "Type: Feature",
     "color": "1d76db",
     "description": "新機能",
-    "aliases": [
-      "enhancement"
-    ]
+    "aliases": ["enhancement"]
   },
   {
     "name": "Type: Refactoring",
     "color": "fbca04",
     "description": "バグの修正も機能の追加も行わないコード変更",
-    "aliases": [
-      "refactor"
-    ]
+    "aliases": ["refactor"]
   },
   {
     "name": "Type: CI",
     "color": "ffd412",
     "description": "CI構成ファイルとスクリプトの変更",
-    "aliases": [
-      "travis",
-      "ci",
-      "circleci"
-    ]
+    "aliases": ["travis", "ci", "circleci"]
   },
   {
     "name": "Type: Security",
     "color": "ee0701",
     "description": "脆弱性の開示またはセキュリティ問題の修正",
-    "aliases": [
-      "security"
-    ]
+    "aliases": ["security"]
   },
   {
     "name": "Type: Dependencies",
     "color": "0366d6",
     "description": "依存関係の問題または依存関係ファイルの変更",
-    "aliases": [
-      "dependencies"
-    ]
+    "aliases": ["dependencies"]
   },
   {
     "name": "Type: Release",
     "color": "5319E7",
     "description": "リリースプロセスに関連する",
-    "aliases": [
-      "meta"
-    ]
+    "aliases": ["meta"]
   },
   {
     "name": "Type: DiscordAPI",
