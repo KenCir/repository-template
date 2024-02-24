@@ -50,7 +50,7 @@
   color: "0e8a16"
   description: "Low priority"
 - name: "Status: Inactive(Abandoned)"
-  color: ffffff"
+  color: "ffffff"
   description: "The issue or Pull Request is wontfix"
 - name: "Status: Inactive(Duplicate)"
   color: "ffffff"
