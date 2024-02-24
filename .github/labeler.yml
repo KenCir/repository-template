@@ -1,0 +1,16 @@
+"Type: Feature":
+  - head-branch: ["^feature/", "^feat/"]
+"Type: Bug":
+  - head-branch: ["^fix/", "^hotfix/"]
+"Type: Change":
+  - head-branch: ["^change/"]
+"Type: Testing":
+  - head-branch: ["^tests/"]
+"Type: Documentation":
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
+      - any-glob-to-any-file: "docs/**"
+"Type: CI":
+  - changed-files:
+      - any-glob-to-any-file: ".github/workflows/**"
+  - head-branch: ["^ci/"]
