@@ -15,7 +15,7 @@
   description: "Changes to existing feature"
 - name: "Type: Documentation"
   color: "0075ca"
-  description: "Documentation only changes"
+  description: "Documentation changes"
 - name: "Type: Refactoring"
   color: "FFEE58"
   description: "A code change that neither fixes a bug nor adds a feature"
