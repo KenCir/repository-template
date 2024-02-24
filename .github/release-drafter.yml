@@ -25,6 +25,4 @@ exclude-contributors:
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"
 change-title-escapes: '\<*_&'
 template: |
-  ## Changes
-
   $CHANGES
