@@ -11,7 +11,7 @@ on:
       - ".github/labels.yml"
 
 jobs:
-  labeler:
+  label-sync:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
