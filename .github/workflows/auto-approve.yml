@@ -1,0 +1,24 @@
+name: auto-approve
+
+on:
+  pull_request_comment:
+    types:
+      - created
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  auto-approve:
+    if: (github.event.issue.pull_request != null) && github.event.comment.user.login == 'KenCir' && github.event.comment.body == '!github approve'
+    runs-on: ubuntu-latest
+    env:
+      PR_URL: ${{ github.event.pull_request.html_url }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      # prをapproveする
+      - name: Approve PR
+        run: gh pr review "$PR_URL" --approve
