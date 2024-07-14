@@ -1,7 +1,7 @@
 name: auto-approve
 
 on:
-  pull_request_comment:
+  issue_comment:
     types:
       - created
 
