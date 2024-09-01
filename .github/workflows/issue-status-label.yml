@@ -1,4 +1,4 @@
-name: Issue Status
+name: Issue Status Label
 
 on:
   issues:
@@ -19,19 +19,9 @@ env:
   ABANDONED_LABEL: "'Status: Inactive(Abandoned)'"
 
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the event JSON
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.issue) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
-
   add_todo_label_on_issue:
-    name: Add Todo label # issueが再度開かれたら、Todoに変更
-    if: github.event.action == 'reopened'
+    name: Add Todo label # issueが再度開かれて、誰もアサインされていなかったら、Todoに変更
+    if: github.event.action == 'reopened' && !github.event.issue.assignee
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
@@ -46,8 +36,8 @@ jobs:
             })
 
   add_in_progress_label_on_issue:
-    name: Add In Progress label # issueがアサインされたら、In Progressに変更
-    if: github.event.action == 'assigned'
+    name: Add In Progress label # issueがアサインされたか、issueが再度開かれて、誰かアサインされていたら、In Progressに変更
+    if: github.event.action == 'assigned' || (github.event.action == 'reopened' && github.event.issue.assignee)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
