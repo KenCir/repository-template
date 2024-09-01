@@ -79,7 +79,7 @@ jobs:
 
   remove_todo_label_on_issue:
     name: Remove Todo label # In ProgressまたはCompletedに変更されたら、Todoを削除
-    if: "${{ (github.event.action == 'assigned' || github.event.action == 'closed') && contains(github.event.issue.labels.*.name, 'Stauts: Todo') }}"
+    if: "${{ (github.event.action == 'assigned' || github.event.action == 'closed') && contains(github.event.issue.labels.*.name, 'Status: Todo') }}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
