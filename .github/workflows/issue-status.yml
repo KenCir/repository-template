@@ -62,8 +62,8 @@ jobs:
             })
 
   add_completed_label_on_issue:
-    name: Add Completed label # issueがクローズされたら、Completedに変更
-    if: github.event.action == 'closed'
+    name: Add Completed label # issueがcompletedでクローズされたら、Completedに変更
+    if: github.event.action == 'closed' && github.event.issue.state_reason == 'completed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
@@ -75,6 +75,22 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: [${{ env.COMPLETED_LABEL }}]
+            })
+
+  add_inactive_abandoned_label_on_issue:
+    name: Add Inactive(Abandoned) label # issueがnot_plannedでクローズされたら、Completedに変更
+    if: github.event.action == 'closed' && github.event.issue.state_reason == 'not_planned'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ env.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: [${{ env.ABANDONED_LABEL }}]
             })
 
   remove_todo_label_on_issue:
@@ -142,7 +158,7 @@ jobs:
             })
 
   remove_inactive_invalid_label_on_issue:
-    name: Remove Inactive label # TodoまたはIn Progressに変更されたら、Inactive(Invalid)を削除
+    name: Remove Inactive(Invalid) label # TodoまたはIn Progressに変更されたら、Inactive(Invalid)を削除
     if: "${{ (github.event.action == 'reopened' || github.event.action == 'assigned') && (contains(github.event.issue.labels.*.name, 'Status: Inactive(Invalid)')) }}"
     runs-on: ubuntu-latest
     steps:
@@ -158,7 +174,7 @@ jobs:
             })
 
   remove_inactive_duplicate_label_on_issue:
-    name: Remove Inactive label # TodoまたはIn Progressに変更されたら、Inactive(Duplicate)を削除
+    name: Remove Inactive(Duplicate) label # TodoまたはIn Progressに変更されたら、Inactive(Duplicate)を削除
     if: "${{ (github.event.action == 'reopened' || github.event.action == 'assigned') && (contains(github.event.issue.labels.*.name, 'Status: Inactive(Duplicate)')) }}"
     runs-on: ubuntu-latest
     steps:
@@ -174,7 +190,7 @@ jobs:
             })
 
   remove_inactive_abandoned_label_on_issue:
-    name: Remove Inactive label # TodoまたはIn Progressに変更されたら、Inactive(Abandoned)を削除
+    name: Remove Inactive(Abandoned) label # TodoまたはIn Progressに変更されたら、Inactive(Abandoned)を削除
     if: "${{ (github.event.action == 'reopened' || github.event.action == 'assigned') && (contains(github.event.issue.labels.*.name, 'Status: Inactive(Abandoned)')) }}"
     runs-on: ubuntu-latest
     steps:
