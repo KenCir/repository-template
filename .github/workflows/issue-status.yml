@@ -22,7 +22,8 @@ jobs:
   issue_stauts_label:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.event.issue }}
+      - run: echo toJSON(${{ github.event.issue }})
+      - run: echo ${{ github.event.issue.labels.name }}
 
       - if: github.event.action == 'reopened'
         name: Add Todo label # issueが再度開かれたら、Todoに変更
