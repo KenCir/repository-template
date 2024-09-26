@@ -1,3 +1,5 @@
+name-template: "$RESOLVED_VERSION"
+tag-template: "$RESOLVED_VERSION"
 categories:
   - title: Features / 新機能
     labels:
@@ -20,6 +22,11 @@ categories:
   - title: Other Changes / その他の変更
     labels:
       - "*"
+exclude-labels:
+  - "Type: Discussion"
+  - "Type: Question"
+  - "Type: Suggestion"
+  - "Type: Dependencies"
 exclude-contributors:
   - github-actions
 change-template: "- $TITLE @$AUTHOR (#$NUMBER)"

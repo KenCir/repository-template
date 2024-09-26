@@ -2,8 +2,8 @@ name: Create release tag and release note.
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - "*"
 
 permissions:
   contents: write
@@ -12,20 +12,28 @@ permissions:
 jobs:
   release:
     name: Release
-    if: startsWith(github.event.head_commit.message, 'Release ')
     runs-on: ubuntu-latest
     steps:
-      - name: Get Version
-        id: get_version
-        run: echo VERSION=${VERSION_TEXT##*Release } >> $GITHUB_OUTPUT
-        env:
-          VERSION_TEXT: ${{ github.event.head_commit.message }}
-      - name: Create Release Note
+      - name: Create Pre-Release Note
+        id: pre_release
+        if: contains(github.ref_name, 'alpha') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc')
         uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag: ${{ steps.get_version.outputs.VERSION }}
-          name: Release ${{ steps.get_version.outputs.VERSION }}
-          version: ${{ steps.get_version.outputs.VERSION }}
+          tag: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          version: ${{ github.ref_name }}
+          publish: true
+          prerelease: true
+      - name: Create Release Note
+        id: release_note
+        if: steps.pre_release.conclusion == 'skipped'
+        uses: release-drafter/release-drafter@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          version: ${{ github.ref_name }}
           publish: true
