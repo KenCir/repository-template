@@ -19,9 +19,19 @@ env:
   ABANDONED_LABEL: "'Status: Inactive(Abandoned)'"
 
 jobs:
+  printJob:
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ github.event.issue.state_reason }}
+        run: |
+          echo "$GITHUB_CONTEXT"
+
   add_todo_label_on_issue:
-    name: Add Todo label # issueが再度開かれて、誰もアサインされていなかったら、Todoに変更
-    if: github.event.action == 'reopened' && !github.event.issue.assignee
+    name: Add Todo label # issueが開かれて、誰もアサインされていなかったら、Todoに変更
+    if: (github.event.action == 'opened' || github.event.action == 'reopened') && !github.event.issue.assignee
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v7
